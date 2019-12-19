@@ -1,0 +1,59 @@
+<div class="container py-5">
+<h1 class="justify-conent-center">Add Data In Table </h1><br>
+</div>
+
+<div class="container ">
+  <button (click)="oncreate()" class="btn btn-primary">Create</button><br><br>
+<ng-container *ngIf="isvalid"> 
+<div class="row">
+    <div class="col-md-4">
+<form [formGroup]="myform" class="form-group">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Name</span>
+        </div>
+        <input type="text" class="form-control" formControlName="name" placeholder="User Name" >
+      </div> 
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" >Age</span>
+        </div>
+        <input type="text" class="form-control" formControlName="age" placeholder="Age" >
+      </div> 
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" >Address</span>
+        </div>
+        <input type="text" class="form-control" formControlName="address" placeholder="Address" >
+      </div> 
+    <button (click)="onadd()" class="btn btn-success">Add</button>
+</form>
+</div>
+</div>
+</ng-container>
+</div>
+
+<div class="container">
+<div class="row">    
+<div class="col-md-8">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">age</th>
+        <th scope="col">Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tr *ngFor="let data of UserData index as i">
+        <th scope="row">{{data.name}}</th>
+        <td>{{data.age}}</td>
+        <td>{{data.address}}</td>
+        <td><button (click)="onRemove(i)" class="btn btn-danger">Remove</button></td> 
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
